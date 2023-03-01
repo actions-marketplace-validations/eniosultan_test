@@ -1,0 +1,22 @@
+
+    name: Scaffold Cumulocity Application
+
+    on:
+      push:
+        branches:
+          - main
+    
+    jobs:
+      scaffold:
+        runs-on: ubuntu-latest
+    
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+    
+          - name: Install Cumulocity CLI
+            run: npm install -g @c8y/cli
+    
+          - name: Scaffold Cumulocity Application
+            run: c8ycli new cockpit cockpit
+    
